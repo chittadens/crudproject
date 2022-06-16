@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<style>
+#div1{
+   
+    width: 600px;
+    height: 600px;
+    background-color: rgb(190, 65, 65);
+    margin-top: 100px;
+}
+h1{
+    font-family: Arial, Helvetica, 'Franklin Gothic Medium', 'Arial Narrow', Arial, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    padding-top: 40px;
+    color: rgb(49, 44, 44);
+}
+label{
+            display: inline-block;
+            font-size: 20px;
+            width: 300px;
+            color: #fff;
+            margin-left: 10px;
+            line-height: 50px;
+            /* width: 100px; */
+        }
+        input{
+            padding: auto;
+        }
+</style>
+<body>
+<center>
+<div id="div1" >
+    <h1>SIGNUP</h1>
+    <br>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="" >Name</label>
+        <input type="text" placeholder="Enter Your Name" id="name" name="name">
+        <label for="" id="name_eror"></label>
+        <br>
+        <label for="">Username</label>
+        <input type="text" placeholder="Enter Your User Name"  id="username" name="username">
+        <label for="" id="username_eror"></label>
+        <br>
+        <label for="">Password</label>
+        <input type="password" placeholder="Enter Your Password" id="password"  name="password">
+        <label for="" id="password_eror"></label>
+        <br>
+        <label for="">Confirm Password</label>
+        <input type="password" placeholder="Enter Confirm Password" id="confirmpassword" name="confirmpassword">
+        <label for="" id="confirmpassword_eror"></label>
+        <br><br>
+        <button  type="submit"  onclick=" return validation()"  class="btn btn-success">SIGNUP</button>
+    </form>
+
+</div>
+</center>
+<script>
+    function validation() {
+             status = 1
+             names = document.getElementById('name')
+             names_error = document.getElementById('name_eror')
+             usernames = document.getElementById('username')
+             usernames_error = document.getElementById('username_eror')
+             password = document.getElementById('Password')
+             password_error = document.getElementById('password_eror')
+             if (names.value == "") {
+                 names.style.borderColor = "red"
+                 names_error.innerHTML = "please enter your  name"
+                 names_error.style.color = "red"
+                 names_error.style.display = "block"
+                 status = 0
+             }
+             else {
+                 names.style.borderColor = "black"
+                 names_error.style.display = "none"
+                 status = 1
+             } if (usernames.value == "") {
+                usernames.style.borderColor = "red"
+                usernames_error.innerHTML = "please enter your  user name"
+                usernames_error.style.color = "red"
+                usernames_error.style.display = "block"
+                 status = 0
+             }
+             else {
+                usernames.style.borderColor = "black"
+                usernames_error.style.display = "none"
+                 status = 1
+             }
+             if (password.value == "") {
+                 password.style.borderColor = "red"
+                 password_error.innerHTML = "please enter your  password"
+                 password_error.style.color = "red"
+                 password_error.style.display = "block"
+                 status = 0
+             }
+             else {
+                 password.style.borderColor = "black"
+                 password_error.style.display = "none"
+                 status = 1            
+             }
+ 
+             if(status ==0){
+                 return false
+             }
+         }
+    
+ </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>    
+</body>
+</html>
